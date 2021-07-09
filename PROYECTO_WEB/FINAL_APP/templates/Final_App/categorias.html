@@ -1,0 +1,44 @@
+{% extends "Final_App/base.html" %}
+
+{% block title%} {{title}} {% endblock %}
+
+{%  load static %}
+
+{% block content %}
+
+    <h1 class="title text-white"> {{title}} </h1>
+<div class="container">
+    {% for producto in productos %}
+        <article class="article-item"> 
+            {% if producto.imagen != 'null'  %}
+                <div class="rounded float-start">
+                    <img src ="{{producto.imagen.url}}"/>
+                </div>
+            {% endif %}
+
+            <div class="data text-white">
+                <h4> {{producto.titulo}}</h4>
+                <p>
+                    {% for categoria in producto.categorias.all%}
+                        <a href="#">{{categoria}}</a>
+                        {% if forloop.counter < producto.categorias.all|length %}
+                            {{'**'}}
+                        {% endif %}
+                    {% endfor %}
+                </p>
+                <span class="date"> 
+                    {{producto.user.first_name}} {{producto.user.last_name}} |
+                    {{producto.created}}
+
+                </span>
+                <p>
+                {{producto.descripcion|safe}}
+                </p>
+            </div>
+
+        </article>
+
+    {% endfor %}
+</div>
+    
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends "Final_App/base.html" %}
+
+{%  load static %}
+
+{% block content %}
+    {% if user.email %}
+    <h6 class="text-white"> Bienvenido, {{request.user.first_name}}</h6>
+    {% else %}
+    <h5>Identificate para ver mas</h5>
+    {% endif %}
+   <!-- Heading -->
+   <div id="lista-cursos" class="container">
+    <h1 id="encabezado" class="encabezado">Cursos En Línea</h1>
+    <div class="row">
+        <div class="four columns">
+            <div class="card">
+                <img src="{% static 'Final_App/img/curso1.jpg' %}" class="imagen-curso u-full-width">
+                <div class="info-card">
+                    <h4>HTML5, CSS3, JavaScript</h4>
+                    <p>Manuel Pariona</p>
+                    <img src="{% static 'Final_App/img/estrellas.png' %}">
+                    <p class="precio">$200  <span class="u-pull-right ">$15</span></p>
+                    <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="1">Agregar Al Carrito</a>
+                </div>
+            </div> <!--.card-->
+        </div>
+        <div class="four columns">
+                <div class="card">
+                    <img src="{% static 'Final_App/img/curso2.jpg' %}" class="imagen-curso u-full-width">
+                    <div class="info-card">
+                        <h4>Curso de Comida Vegetariana</h4>
+                        <p>Manuel Pariona</p>
+                        <img src="{% static 'Final_App/img/estrellas.png' %}">
+                        <p class="precio">$200  <span class="u-pull-right ">$15</span></p>
+                        <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="2">Agregar Al Carrito</a>
+                    </div>
+                </div>
+        </div>
+        <div class="four columns">
+                <div class="card">
+                    <img src="{% static 'Final_App/img/curso3.jpg' %}" class="imagen-curso u-full-width">
+                    <div class="info-card">
+                        <h4>Guitarra para Principiantes</h4>
+                        <p>Manuel Pariona</p>
+                        <img src="{% static 'Final_App/img/estrellas.png' %}">
+                        <p class="precio">$200  <span class="u-pull-right ">$15</span></p>
+                        <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="3">Agregar Al Carrito</a>
+                    </div>
+                </div> <!--.card-->
+        </div>
+    </div> <!--.row-->
+    <div class="row">
+        <div class="twelve columns ">
+            <div class="card">
+                <p>MAS CATEGORIAS</p>
+                <ul>
+                    <li>Desarrollo Web</li>
+                    <li>Progamación JavaScript</li>
+                    <li>Musica</li>
+                    <li>Comida</li>
+                    <li>Back End</li>
+                </ul>
+            </div>   
+        </div>
+    </div> <!--.row-->
+
+</div>  
+
+{% endblock %}

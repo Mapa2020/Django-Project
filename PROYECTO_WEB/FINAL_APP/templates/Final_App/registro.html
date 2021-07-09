@@ -1,0 +1,49 @@
+{% extends "Final_App/base.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+{%  load static %}
+
+{% block content %}
+<!-- REGISTER SECTION -->
+<section id="contact" class="py-3">
+        <h1 class = "text-white px-5">{{title}}</h1>
+        {% if messages %}
+        {% for message in messages%}
+            <div class= "alert alert-success">
+            {{message}}
+            </div>
+        {% endfor %}
+    {% endif %}   
+
+    <div class="container">
+        <div class="col-md-8">
+            <div class="card-body text-dark bg-white h6">
+                <div class="row">
+                        <form method="POST" action="">
+                            {% csrf_token %}
+                            {% comment %}
+                            {{register_form.as_p}}
+                            {% endcomment %}
+
+                            {% for field in register_form %}
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    {{field.label}}
+                                    {{field}}
+                                </div> 
+                            </div>
+                            {% endfor %}
+                            <div class="col-md-12">
+                                <div class="form-group">    
+                                <input type="submit" class="btn btn-outline-danger btn-block" value="Registrarse">
+                                </div>
+                            </div>
+                        </form>
+                </div>
+            </div>
+        </div>   
+    </div>
+</section>
+
+{% endblock%}

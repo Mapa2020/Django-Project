@@ -1,0 +1,101 @@
+{% extends "Final_App/base.html" %}
+
+{%  load static %}
+
+{% block content %}
+
+   <!-- CONTACT SECTION -->
+   <section id="contact" class="py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card-body text-white">
+              <h1>Contactarse</h1>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum, saepe.</p>
+              <h4>Dirección</h4>
+              <p>550 Pirai, Santa Cruz de la Sierra SC</p>
+              <h4>Email</h4>
+              <p>test@test.com</p>
+              <h4>Telefono</h4>
+              <p>(791) 555-5555</p>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="card p-4">
+              <div class="card-body">
+                <div class="text-center">Ingrese sus Datos en el Formulario<div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Nombres">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Apellidos">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Email">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Num. Teléfono">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <textarea class="form-control" placeholder="Mensaje"></textarea>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                         <input type="submit" value="Enviar" class="btn btn-outline-danger btn-block"> 
+                      </div>
+                    </div>
+                  </div>
+  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- STAFF -->
+    <section id="staff" class="py-5 text-center bg-dark text-white">
+      <div class="contanier">
+        <h1>Nuestro Staff</h1>
+        <hr>
+        <div class="row">
+          <div class="col-md-3">
+            <img src="{% static 'Final_App/img/person1.jpg' %}" alt="" class="img-fluid rounded-circle md-2">
+            <h4>Tiffany Pariona</h4>
+            <small>Director de Ventas</small>
+          </div>
+          <div class="col-md-3">
+            <img src="{% static 'Final_App/img/person2.jpg' %}" alt="" class="img-fluid rounded-circle md-2">
+            <h4>Rosario Almaz</h4>
+            <small>Director de negocios</small>
+          </div>
+          <div class="col-md-3">
+            <img src="{% static 'Final_App/img/person3.jpg' %}" alt="" class="img-fluid rounded-circle md-2">
+            <h4>Manuel Pariona</h4>
+            <small>CEO</small>
+          </div>
+          <div class="col-md-3">
+            <img src="{% static 'Final_App/img/person4.jpg' %}" alt="" class="img-fluid rounded-circle md-2">
+            <h4>Sergio Palma</h4>
+            <small>Desarrollo Web</small>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+{% endblock %}

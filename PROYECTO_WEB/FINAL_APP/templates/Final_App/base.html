@@ -1,0 +1,144 @@
+<html>
+
+<head>
+  <title>
+    {% block title %}
+      {{title}}
+    {% endblock %}
+    |Manuel Pariona
+  </title>
+    {% load static %}
+    <!-- Bootstrap -->
+    <link href="{% static 'Final_App/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+     <!-- Fonts -->   
+     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet"> 
+     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">    
+    <!-- Styles -->
+    <link href="{% static 'Final_App/css/gestion.css' %}" rel="stylesheet">
+    <link href="{% static 'Final_App/css/custom.css' %}" rel="stylesheet">
+    <link href="{% static 'Final_App/css/skeleton.css' %}" rel="stylesheet">
+</head>
+
+<body>
+   <!-- Cabecera -->
+<header>
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container bg-dark text-white">
+        <img src="{% static 'Final_App/img/usb-logo5.png' %}" id="logo">
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+              <ul class="navbar-nav ml-auto">
+                  <li class="nav-item{%if request.path == '/Login' %}active{% endif %}"><a href="{% url 'Login' %}" class="nav-link">Login</a></li>
+                  <li class="nav-item{%if request.path == '/Registro' %}active{% endif %}"><a href="{% url 'Registro' %}" class="nav-link">Registro</a></li>
+                  <li class="nav-item{%if request.path == '/Logout' %}active{% endif %}"><a href="{% url 'Logout' %}" class="nav-link">Logout</a></li>
+                  <li class="submenu">
+                  {% if user.email %}
+                          <img src="{% static 'Final_App/img/cart.png' %}" id="img-carrito">
+                          <div id="carrito">
+                                  <table id="lista-carrito" class="u-full-width">
+                                      <thead>
+                                          <tr>
+                                              <th>Imagen</th>
+                                              <th>Nombre</th>
+                                              <th>Precio</th>
+                                              <th>Cantidad</th>
+                                              <th></th>
+                                          </tr>
+                                      </thead>
+                                      <tbody></tbody>
+                                  </table>
+
+                                  <a href="#" id="vaciar-carrito" class="button u-full-width">Vaciar Carrito</a>
+                          </div>   
+                  {% endif %}   
+                  </li>
+              </ul>
+          </div>
+    </div> 
+  </nav>
+</header>
+
+ <!-- Navbar  Menu-->
+ {% if user.email %}
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-lg-4" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="{% url 'Home' %}">Gestión de Pedidos</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item {%if request.path == '/' %}active{% endif %} px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'Home' %}">Inicio</a>
+          </li>
+          <li class="nav-item {%if request.path == '/Categorias' %}active{% endif %} px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'Categorias' %}">Categorias</a>
+          </li>
+          <li class="nav-item {%if request.path == '/Acerca' %}active{% endif %} px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'Acerca' %}">Acerca de..</a>
+          </li>
+          <li class="nav-item {%if request.path == '/Contacto' %} active{% endif %} px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'Contacto' %}">Contacto</a>
+          </li>
+          <li class="nav-item {%if request.path == '/Nuevo' %}active{% endif %} px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'Nuevo' %}">Nuevo Producto</a>
+          </li>
+          <li class="nav-item px-lg-4">
+              <form class="form-inline">
+                <input class="form-control mr-sm-1" type="search" placeholder="Buscar" aria-label="Search">
+                <a href="buscar.html" class="btn btn-secondary btn-lg" tabindex="-1" role="button" aria-disabled="true">Buscar</a>
+              </form>
+          </li>
+         
+        </ul>
+      </div>
+    </div>
+  </nav>
+{% endif %}
+
+   <!-- Contenido que va cambiar -->
+   {% block content %}
+
+
+   {% endblock %}
+    
+    <!-- Footer -->
+    <footer class="footer text-faded text-center py-5">
+      <div class="container">
+        <p class="m-0">
+	        <a href="#" class="link">
+	          <span class="fa-stack fa-lg">
+	            <i class="fa fa-circle fa-stack-2x"></i>
+	            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+	          </span>
+	        </a>
+	        <a href="#" class="link">
+	          <span class="fa-stack fa-lg">
+	            <i class="fa fa-circle fa-stack-2x"></i>
+	            <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+	          </span>
+	        </a>
+	        <a href="#" class="link">
+	          <span class="fa-stack fa-lg">
+	            <i class="fa fa-circle fa-stack-2x"></i>
+	            <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+	          </span>
+	        </a>
+	    </p>
+        <p class="m-0 mbt">
+        	<a href="sample.html" class="link">Política de privacidad</a> ·
+        	<a href="sample.html" class="link">Aviso legal</a> ·
+        	<a href="sample.html" class="link">Cookies</a>
+		</p>
+        <p class="m-0 mbt1">&copy; MAPA Gestión de Pedidos 2021</p>
+      </div>
+	</footer>
+
+    <!-- Bootstrap -->
+    <script src="{% static 'Final_App/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'Final_App/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'Final_App/js/app.js' %}"></script>
+
+</body>
+
+
+</html>
